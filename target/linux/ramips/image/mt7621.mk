@@ -2251,6 +2251,8 @@ define Device/youku_yk-l2
   DEVICE_MODEL := YK-L2
   DEVICE_PACKAGES := kmod-mt7603 kmod-mt76x2 kmod-usb3 \
 	kmod-usb-ledtrig-usbport
+  UIMAGE_MAGIC := 0x12291000
+  UIMAGE_NAME := 400000000000000000003000
 endef
 TARGET_DEVICES += youku_yk-l2
 
@@ -2316,6 +2318,30 @@ define Device/zbtlink_zbt-wg1602-16m
 	kmod-usb-ledtrig-usbport
 endef
 TARGET_DEVICES += zbtlink_zbt-wg1602-16m
+
+define Device/zbtlink_zbt-wg1602-v04-16m
+  $(Device/dsa-migration)
+  $(Device/uimage-lzma-loader)
+  IMAGE_SIZE := 16064k
+  DEVICE_VENDOR := Zbtlink
+  DEVICE_MODEL := ZBT-WG1602-V04
+  DEVICE_VARIANT := 16M
+  DEVICE_PACKAGES := kmod-sdhci-mt7620 kmod-mt7603 kmod-mt76x2 kmod-usb3 \
+        kmod-usb-ledtrig-usbport
+endef
+TARGET_DEVICES += zbtlink_zbt-wg1602-v04-16m
+
+define Device/zbtlink_zbt-wg1602-v04-32m
+  $(Device/dsa-migration)
+  $(Device/uimage-lzma-loader)
+  IMAGE_SIZE := 32128k
+  DEVICE_VENDOR := Zbtlink
+  DEVICE_MODEL := ZBT-WG1602-V04
+  DEVICE_VARIANT := 32M
+  DEVICE_PACKAGES := kmod-sdhci-mt7620 kmod-mt7603 kmod-mt76x2 kmod-usb3 \
+        kmod-usb-ledtrig-usbport
+endef
+TARGET_DEVICES += zbtlink_zbt-wg1602-v04-32m
 
 define Device/zbtlink_zbt-wg1608-16m
   $(Device/dsa-migration)
